@@ -1,5 +1,5 @@
 <template>
-  <div :style="style" class="item" />
+  <div v-scroll-reveal.reset :style="style" class="item" />
 </template>
 
 <script>
@@ -33,6 +33,14 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
+    cursor: pointer;
+    border: 2px solid #1e3d4a;
+    opacity: 0.9;
+  }
+
+  .item:hover
+  {
+    opacity: 1;
   }
 
   @media (min-width: 768px)

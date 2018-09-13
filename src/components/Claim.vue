@@ -1,6 +1,6 @@
 <template>
-  <div class="claimWrapper">
-    <h1 class="claim">SPACER</h1>
+  <div v-scroll-reveal class="claimWrapper">
+    <h1 class="claim">IN THE SKY</h1>
     <p class="subclaim">
       Begin your journey through our amazing galaxy,
       and discover places you never even heard of.
@@ -31,6 +31,7 @@
     font-size: 50px;
     margin: 0;
     letter-spacing: 8px;
+    text-shadow: 2px 2px black;
   }
 
   .subclaim {

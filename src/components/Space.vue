@@ -8,7 +8,7 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   .SpaceImage
   {
     position: fixed;
@@ -16,7 +16,7 @@
     width: 100%;
     z-index: -1;
     height: 100vh;
-    background-image: url('../assets/background.jpg');
+    background-image: url('../assets/galaxy.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 80% 0%;
@@ -24,7 +24,7 @@
 
   .SpaceImage::after
   {
-    background-color: rgba(0, 0, 0, 2.0);
+    background-color: rgba(0, 0, 0, 0.8);
     content: '';
     opacity: 0.1;
     position: absolute;
