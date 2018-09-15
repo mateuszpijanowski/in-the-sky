@@ -9,8 +9,12 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "lodash.debounce": "^4.0.8",
     "vue": "^2.5.17",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-scroll-reveal": "^1.0.8",
+    "vuebar": "0.0.20"
   },
   "devDependencies": {
     "@vue/cli-plugin-eslint": "^3.0.1",
@@ -18,7 +22,7 @@
     "@vue/cli-service": "^3.0.1",
     "@vue/eslint-config-airbnb": "^3.0.1",
     "@vue/test-utils": "^1.0.0-beta.20",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.3",
     "sass-loader": "^7.0.1",
     "vue-template-compiler": "^2.5.17"
   }

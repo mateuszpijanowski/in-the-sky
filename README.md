@@ -1,5 +1,5 @@
-# Spacer app
+# In The Sky
 
-This web app uses NASA API.
+This web app uses NASA API and Vue.js framework.
 
-### Mateusz Pijanowski
+### by Mateusz Pijanowski
