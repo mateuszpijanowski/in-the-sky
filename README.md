@@ -1,5 +1,7 @@
 # Spacer app
 
-This web app uses NASA API.
+This web app uses NASA API and Vue.js framework.
 
-### Mateusz Pijanowski
+Online: https://suspicious-albattani-c80561.netlify.com/
+
+### by Mateusz Pijanowski
