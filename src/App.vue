@@ -5,13 +5,19 @@
       <transition name="slide">
         <div onclick="location.reload()" class="logo" v-if="step == 1">IN THE SKY</div>
       </transition>
+      <div @click="pageAbout()" class="about" v-if="step == 1">About</div>
+      <About @closeAbout="about = false" v-if="about == true" />
       <transition name="fade">
         <Space v-if="step == 0" />
       </transition>
       <Claim v-if="step == 0" />
       <SearchInput v-scroll-reveal v-model="searchValue" @input="handleInput" :dark="step == 1" />
       <div class="results" v-if="results && !loading && step == 1">
-        <Item v-for="item in results" :item="item" :key="item.data[0].nasa_id" @click.native="handleModalOpen(item)" />
+        <Item
+        v-for="item in results"
+        :item="item"
+        :key="item.data[0].nasa_id"
+        @click.native="handleModalOpen(item)" />
       </div>
       <div class="loader" v-if="step == 1 && loading" />
       <Modal v-if="modalOpen" :item="modalItem" @closeModal="modalOpen = false" />
@@ -26,6 +32,7 @@
   import Claim from '@/components/Claim.vue';
   import Item from '@/components/Item.vue';
   import Modal from '@/components/Modal.vue';
+  import About from '@/components/About.vue';
   import SearchInput from '@/components/SearchInput.vue';
   const API = 'https://images-api.nasa.gov/search';
   export default {
@@ -36,11 +43,13 @@
       Space,
       Item,
       Modal,
+      About,
     },
     data() {
       return {
-        modalItem: null,
+        about: false,
         modalOpen: false,
+        modalItem: null,
         loading: false,
         step: 0,
         searchValue: '',
@@ -51,6 +60,9 @@
       handleModalOpen(item) {
         this.modalOpen = true;
         this.modalItem = item;
+      },
+      pageAbout() {
+        this.about = true;
       },
       // eslint-disable-next-line
       handleInput: debounce(function() {
@@ -81,7 +93,7 @@
 
   body
   {
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
     font-family: Montserrat, sans-serif;
     margin: 0;
     padding: 0;
@@ -133,12 +145,47 @@
     cursor: pointer;
   }
 
+  .about
+  {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 3px;
+    cursor: pointer;
+
+    @media (min-width: 786px)
+    {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      font-size: 20px;
+    }
+  }
+
   .results
   {
     margin-top: 50px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 20px;
+  }
+
+  @media (min-width: 768px)
+  {
+    .results
+    {
+      width: 90%;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1024px)
+  {
+    .results
+    {
+      width: 90%;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 
   .loader {
@@ -153,6 +200,7 @@
       height: 90px;
     }
   }
+
   .loader:after {
     content: " ";
     display: block;
@@ -164,6 +212,7 @@
     border-color: #1e3d4a transparent #1e3d4a transparent;
     animation: loading 1.2s linear infinite;
   }
+
   @keyframes loading {
     0% {
       transform: rotate(0deg);
@@ -173,29 +222,28 @@
     }
   }
 
-
-  @media (min-width: 768px)
-  {
-    .results
-    {
-      width: 90%;
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
-
   /*JS script ScrollTo*/
   .scrollup
   {
-    width: 64px;
-    height: 64px;
     text-decoration: none;
     background: url("assets/up.png") no-repeat 0px 0px;
+    background-size: cover;
     position: fixed;
-    right: 50px;
-    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    right: 25px;
+    bottom: 25px;
     display: none;
     z-index: 1;
     cursor: pointer;
+
+    @media (min-width: 786px)
+    {
+      right: 50px;
+      bottom: 50px;
+      width: 64px;
+      height: 64px;
+    }
   }
 
   .scrollup:hover

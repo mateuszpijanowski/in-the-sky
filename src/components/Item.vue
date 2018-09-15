@@ -28,8 +28,8 @@
 <style>
   .item
   {
-    width: 40vw;
-    height: 250px;
+    width: 80vw;
+    height: 300px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50%;
@@ -44,6 +44,15 @@
   }
 
   @media (min-width: 768px)
+  {
+    .item
+    {
+      width: 40vw;
+      height: 300px;
+    }
+  }
+
+  @media (min-width: 1024px)
   {
     .item
     {

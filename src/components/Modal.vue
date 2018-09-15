@@ -1,20 +1,20 @@
 <template>
-    <div v-scroll-reveal class="outerWrapper">
-        <div class="innerWrapper">
-          <div class="photo">
-            <img :src="photo" />
-          </div>
-          <div class="description">
-            <h2 class="title">{{ title }}</h2>
-            <p class="description" v-html="description">
-            </p>
-          </div>
-        </div>
-        <div class="close" @click="$emit('closeModal')" />
+  <div v-scroll-reveal class="outerWrapper">
+    <div class="innerWrapper">
+      <div class="photo">
+        <img :src="photo" />
+      </div>
+      <div class="description">
+        <h2 class="title">{{ title }}</h2>
+        <p class="description" v-html="description" />
+      </div>
     </div>
+    <div class="close" @click="$emit('closeModal')" />
+  </div>
 </template>
 
 <script>
+
   export default {
     name: 'Modal',
     props: {
@@ -47,12 +47,11 @@
     position: fixed;
     top: 0;
     left: 0;
-    overflow: auto;
     z-index: 10;
+    overflow: auto;
 
     @media (min-width: 1024px)
     {
-      position: none;
       max-width: 90%;
       max-height: 80%;
       min-height: 504px;
@@ -67,7 +66,7 @@
 
   .innerWrapper
   {
-    display: inline-block;
+    display: block;
     padding: 50px;
     justify-content: center;
     align-items: center;
@@ -89,7 +88,7 @@
         width: auto !important;
         height: auto !important;
         float: left !important;
-     }
+      }
     }
 
     .photo
