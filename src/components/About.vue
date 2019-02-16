@@ -18,7 +18,7 @@
         <br /><br />
         My other project: <a target="_blank" href="http://mprojectt.com">Mprojectt.com</a>
         <br />
-        <a class="copy">&copy by Mateusz Pijanowski</a>
+        <a class="copy">by Mateusz Pijanowski</a>
       </p>
     </div>
     <div class="close" @click="$emit('closeAbout')" />
@@ -26,9 +26,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'About',
-  };
+export default {
+  name: 'About',
+};
 </script>
 
 <style lang="scss">

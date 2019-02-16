@@ -12,9 +12,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'Claim',
-  };
+export default {
+  name: 'Claim',
+};
 </script>
 
 <style>
