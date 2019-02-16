@@ -26,59 +26,60 @@
 </template>
 
 <script>
-  import axios from 'axios';
-  import debounce from 'lodash.debounce';
-  import Space from '@/components/Space.vue';
-  import Claim from '@/components/Claim.vue';
-  import Item from '@/components/Item.vue';
-  import Modal from '@/components/Modal.vue';
-  import About from '@/components/About.vue';
-  import SearchInput from '@/components/SearchInput.vue';
-  const API = 'https://images-api.nasa.gov/search';
-  export default {
-    name: 'Search',
-    components: {
-      Claim,
-      SearchInput,
-      Space,
-      Item,
-      Modal,
-      About,
+import axios from 'axios';
+import debounce from 'lodash.debounce';
+import Space from '@/components/Space.vue';
+import Claim from '@/components/Claim.vue';
+import Item from '@/components/Item.vue';
+import Modal from '@/components/Modal.vue';
+import About from '@/components/About.vue';
+import SearchInput from '@/components/SearchInput.vue';
+
+const API = 'https://images-api.nasa.gov/search';
+export default {
+  name: 'Search',
+  components: {
+    Claim,
+    SearchInput,
+    Space,
+    Item,
+    Modal,
+    About,
+  },
+  data() {
+    return {
+      about: false,
+      modalOpen: false,
+      modalItem: null,
+      loading: false,
+      step: 0,
+      searchValue: '',
+      results: [],
+    };
+  },
+  methods: {
+    handleModalOpen(item) {
+      this.modalOpen = true;
+      this.modalItem = item;
     },
-    data() {
-      return {
-        about: false,
-        modalOpen: false,
-        modalItem: null,
-        loading: false,
-        step: 0,
-        searchValue: '',
-        results: [],
-      };
+    pageAbout() {
+      this.about = true;
     },
-    methods: {
-      handleModalOpen(item) {
-        this.modalOpen = true;
-        this.modalItem = item;
-      },
-      pageAbout() {
-        this.about = true;
-      },
-      // eslint-disable-next-line
-      handleInput: debounce(function() {
-        this.loading = true;
-        axios.get(`${API}?q=${this.searchValue}&media_type=image`)
-          .then((response) => {
-            this.results = response.data.collection.items;
-            this.loading = false;
-            this.step = 1;
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }, 500),
-    },
-  };
+    // eslint-disable-next-line
+    handleInput: debounce(function() {
+      this.loading = true;
+      axios.get(`${API}?q=${this.searchValue}&media_type=image`)
+        .then((response) => {
+          this.results = response.data.collection.items;
+          this.loading = false;
+          this.step = 1;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, 500),
+  },
+};
 </script>
 
 <style lang="scss">

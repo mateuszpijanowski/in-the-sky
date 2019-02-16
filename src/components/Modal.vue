@@ -14,28 +14,27 @@
 </template>
 
 <script>
-
-  export default {
-    name: 'Modal',
-    props: {
-      item: {
-        type: Object,
-        required: true,
-      },
+export default {
+  name: 'Modal',
+  props: {
+    item: {
+      type: Object,
+      required: true,
     },
-    data() {
-      return {
-        photo: null,
-        title: null,
-        description: null,
-      };
-    },
-    mounted() {
-      this.photo = this.item.links[0].href;
-      this.title = this.item.data[0].title;
-      this.description = this.item.data[0].description;
-    },
-  };
+  },
+  data() {
+    return {
+      photo: null,
+      title: null,
+      description: null,
+    };
+  },
+  mounted() {
+    this.photo = this.item.links[0].href;
+    this.title = this.item.data[0].title;
+    this.description = this.item.data[0].description;
+  },
+};
 </script>
 
 <style lang="scss">
