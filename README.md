@@ -3,7 +3,7 @@
 
 **In The Sky** is a web app which searching in NASA databases based on users words entered. This app was created with VueJS framework and NASA API.
 
-<p align="center"><img src="https://github.com/mateuszpijanowski/in-the-sky/blob/master/src/assets/in-the-sky-promo.gif" alt="InTheSky-promo" width="700px" /></p>
+<p align="center"><img src="https://github.com/mateuszpijanowski/in-the-sky/blob/1.0.0/src/assets/in-the-sky-promo.gif" alt="InTheSky-promo" width="700px" /></p>
 
 ## Basic features  
   
