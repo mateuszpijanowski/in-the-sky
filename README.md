@@ -23,5 +23,6 @@
 
 ### WebStrong &copy;  
   
-This web was created by **Mateusz Pijanowski** (<i>WebStrong team</i>) <br />
+This web was created by **Mateusz Pijanowski**. <br />
+<i>This web is a course project created by **[Hello Roman](https://github.com/helloroman/)!**</i> <br />
 > **Online:** https://suspicious-albattani-c80561.netlify.com/
